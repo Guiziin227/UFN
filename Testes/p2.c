@@ -1,8 +1,15 @@
+/*
+  Nome: Guilherme Weber Henriques, Guilherme da Silva Scher
+
+  Programa que gera matrizes(ou pode fazer manualmente) e manipula elas, utilizando alocação dinamica.
+*/
+
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
 
-void criarManual(int tam, int *m){
+void criarManual(int tam, int *m){ //Aqui nessa função o próprio usuario digita a matriz desejada(Melhor para fazer os testes de "mostraClasse")
 
   int d;
 
@@ -20,7 +27,7 @@ void criarManual(int tam, int *m){
   }
 }
 
-void criarAutomatico(int tam, int *m){
+void criarAutomatico(int tam, int *m){ //O programa gera automaticamente a matriz de acordo com o tamanho indicado anteriormente
 
   int d;
 
@@ -38,7 +45,7 @@ void criarAutomatico(int tam, int *m){
 
 }
 
-void mostraMatriz(int tam, int *m){
+void mostraMatriz(int tam, int *m){ //Da output da matriz
    int d;
 
   for (int i = 0; i < tam; i++)
@@ -52,18 +59,18 @@ void mostraMatriz(int tam, int *m){
   }
 }
 
-void mostraClasse(int tam, int *m) {
+void mostraClasse(int tam, int *m) {// Nessa função mostra o tipo da matriz ou "os tipos"
     int d, transposta;
-    int simetrica = 1, diagonal = 1, triangularSuperior = 1, triangularInferior = 1;
+    int simetrica = 1, diagonal = 1, triangularSuperior = 1, triangularInferior = 1; //inicializado tudo como "true"
 
     for (int i = 0; i < tam; i++) {
         for (int j = 0; j < tam; j++) {
-            d = i * tam + j;
+            d = i * tam + j; // Lógica para percorrer toda matriz, de acordo com o que foi visto em aula.
             transposta = j * tam + i;
 
           
             if (*(m + d) != *(m + transposta)) {     
-                simetrica = 0;
+                simetrica = 0; //vira "false" caso entre nessa condicao 
             }
         
             if (i != j && *(m + d) != 0) {
@@ -98,7 +105,7 @@ void mostraClasse(int tam, int *m) {
 }
 
 
-void calculaMatriz(int tam, int *m){
+void calculaMatriz(int tam, int *m){ //Função para fazer calculos com a matriz.
 
   int d, somatorioPrimeiraColuna =0, n;
   int somaDiagonal =0;
